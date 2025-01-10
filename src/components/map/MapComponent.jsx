@@ -1,6 +1,20 @@
 /* eslint-disable react/prop-types */
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+
+import markerIconUrl from "leaflet/dist/images/marker-icon.png";
+import markerShadowUrl from "leaflet/dist/images/marker-shadow.png";
+
+const customMarkerIcon = L.icon({
+  iconUrl: markerIconUrl,
+  shadowUrl: markerShadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 const MapComponent = ({ spots, selectedSpot, onSpotSelect, userPosition }) => {
   return (
@@ -14,24 +28,29 @@ const MapComponent = ({ spots, selectedSpot, onSpotSelect, userPosition }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      {/* User position marker */}
-      <Marker position={[userPosition.lat, userPosition.lng]}>
+      <Marker
+        position={[userPosition.lat, userPosition.lng]}
+        icon={customMarkerIcon}
+      >
         <Popup>You are here</Popup>
       </Marker>
 
-      {/* Parking spots markers */}
+      {/* Markers for parking spots */}
       {spots.map((spot) => (
         <Marker
           key={spot.id}
           position={[spot.latitude, spot.longitude]}
+          icon={customMarkerIcon}
           eventHandlers={{
             click: () => onSpotSelect(spot),
           }}
         >
           <Popup>
-            {spot.name}
+            <strong>{spot.name}</strong>
             <br />
             Available spaces: {spot.available_spaces}
+            <br />
+            Cost per hour: ${spot.cost_per_hour}
           </Popup>
         </Marker>
       ))}
