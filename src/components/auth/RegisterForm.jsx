@@ -33,8 +33,8 @@ const RegisterForm = () => {
     try {
       await register(formData);
       navigate("/");
-    } catch (err) {
-      setError(err.message || "Failed to register");
+    } catch {
+      setError("Failed to register");
     }
   };
 

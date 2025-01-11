@@ -35,7 +35,6 @@ const MapComponent = ({ spots, selectedSpot, onSpotSelect, userPosition }) => {
         <Popup>You are here</Popup>
       </Marker>
 
-      {/* Markers for parking spots */}
       {spots.map((spot) => (
         <Marker
           key={spot.id}

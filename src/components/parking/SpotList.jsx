@@ -9,7 +9,7 @@ const SpotList = ({ spots, selectedSpot, onSpotSelect, onSpotBook }) => {
           spot={spot}
           isSelected={selectedSpot?.id === spot.id}
           onClick={() => onSpotSelect(spot)}
-          onBook={() => onSpotBook(spot)} // Make sure this is passed down
+          onBook={() => onSpotBook(spot)}
         />
       ))}
     </div>

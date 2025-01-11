@@ -1,27 +1,10 @@
 /* eslint-disable react/prop-types */
-// import Header from "./Header";
-// import Sidebar from "./Sidebar";
-
-// const Layout = ({ children }) => {
-//   return (
-//     <div className="min-h-screen bg-gray-100">
-//       <Header />
-//       <div className="flex">
-//         <Sidebar className="h-full" />
-//         <main className="flex-1 p-6">{children}</main>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Layout;
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { Menu } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
-import Button from "../common/Button";
 
 const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,7 +12,6 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Mobile Header */}
       <div className="lg:hidden">
         <header className="bg-white shadow-sm border-y-2">
           <div className="p-4 flex justify-between items-center">
@@ -44,7 +26,6 @@ const Layout = ({ children }) => {
             </button>
           </div>
 
-          {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
             <div className="border-t border-gray-200 bg-white">
               <div className="p-4 space-y-4">
@@ -55,7 +36,6 @@ const Layout = ({ children }) => {
                   </div>
                 )}
 
-                {/* Navigation Links */}
                 <div className="space-y-2">
                   <Link
                     to="/"
@@ -101,19 +81,15 @@ const Layout = ({ children }) => {
         </header>
       </div>
 
-      {/* Desktop Header */}
       <div className="hidden lg:block">
         <Header />
       </div>
 
-      {/* Main Content */}
       <div className="flex">
-        {/* Desktop Sidebar */}
         <div className="hidden lg:block">
           <Sidebar className="h-full" />
         </div>
 
-        {/* Main Content Area */}
         <main className="flex-1 p-6">{children}</main>
       </div>
     </div>

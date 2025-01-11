@@ -146,7 +146,7 @@ const Dashboard = () => {
   const [showBooking, setShowBooking] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortBy, setSortBy] = useState("cost"); // Default sorting by cost
+  const [sortBy, setSortBy] = useState("cost");
   const { position } = useGeolocation();
   const navigate = useNavigate();
 
@@ -154,7 +154,8 @@ const Dashboard = () => {
     if (!position) return;
 
     try {
-      setLoading(true); // Show loading while fetching
+      setLoading(true);
+      console.log(position.lat);
       const { data } = await findNearbySpots(
         position.lat,
         position.lng,
@@ -171,7 +172,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    loadSpots(sortBy); // Fetch spots when position or sort criteria changes
+    loadSpots(sortBy);
   }, [position, sortBy]);
 
   const handleSortChange = (event) => {

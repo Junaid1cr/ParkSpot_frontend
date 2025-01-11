@@ -5,10 +5,8 @@ import AuthProvider from "./context/AuthProvider";
 import App from "./App";
 import "./styles/index.css";
 
-// Get the root element
 const rootElement = document.getElementById("root");
 
-// Create a React root and render the application
 const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>

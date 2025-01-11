@@ -23,14 +23,14 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    console.log("Form submitted with data:", formData); // Debug log
+    console.log("Form submitted with data:", formData);
     try {
       const response = await login(formData);
-      console.log("Login successful:", response); // Debug log
+      console.log("Login successful:", response);
       navigate("/");
-    } catch (err) {
-      console.error("Login failed:", err); // Debug log
-      setError(err.message || "Failed to login");
+    } catch {
+      console.error("Login failed:");
+      setError("Failed to login");
     }
   };
 
