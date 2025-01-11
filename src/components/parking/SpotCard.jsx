@@ -21,7 +21,7 @@ const SpotCard = ({ spot, isSelected, onClick, onBook }) => {
           </p>
         </div>
         <div className="text-right">
-          <p className="font-bold text-lg">${spot.cost_per_hour}/hr</p>
+          <p className="font-bold text-lg">₹{spot.cost_per_hour}/hr</p>
           <p
             className={`font-medium ${
               spot.available_spaces > 5 ? "text-green-600" : "text-orange-600"

@@ -33,7 +33,7 @@ const BookingCard = ({ booking, onComplete }) => {
         </div>
         <div className="text-right">
           <p className="font-bold text-lg">
-            ${booking.final_cost || booking.estimated_cost}
+            ₹{booking.final_cost || booking.estimated_cost}
           </p>
           <span
             className={`

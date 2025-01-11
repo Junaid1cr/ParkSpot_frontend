@@ -26,7 +26,7 @@ const BookingConfirmation = ({ spot, onConfirm, onCancel }) => {
 
       <div className="mb-6">
         <h3 className="font-bold">{spot.name}</h3>
-        <p className="text-gray-600">Rate: ${spot.cost_per_hour}/hour</p>
+        <p className="text-gray-600">Rate: ₹{spot.cost_per_hour}/hour</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -41,7 +41,7 @@ const BookingConfirmation = ({ spot, onConfirm, onCancel }) => {
 
         <div className="flex justify-between">
           <p className="text-lg">
-            Total Cost: ${(spot.cost_per_hour * hours).toFixed(2)}
+            Total Cost: ₹{(spot.cost_per_hour * hours).toFixed(2)}
           </p>
         </div>
 

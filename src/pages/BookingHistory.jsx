@@ -29,7 +29,7 @@ const BookingHistory = () => {
   const handleCompleteBooking = async (bookingId) => {
     try {
       await api.post(`/bookings/${bookingId}/complete`);
-      navigate("/"); // Redirect to dashboard after completion
+      navigate("/");
     } catch (error) {
       setError("Failed to complete booking");
       console.error("Error completing booking:", error);
